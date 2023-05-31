@@ -1,16 +1,14 @@
 function initMap() {
+    // Obter coordenadas do celular usando o JavaScript
     navigator.geolocation.getCurrentPosition(function(position) {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
 
-        // Converter coordenadas geográficas em UTM
-        var utmCoords = utm.fromLatLon(lat, lng);
+        // Exibir as coordenadas no HTML
+        document.getElementById('latitude').textContent = lat.toFixed(6);
+        document.getElementById('longitude').textContent = lng.toFixed(6);
 
-        // Exibir as coordenadas UTM no HTML
-        document.getElementById('latitude').textContent = utmCoords.northing.toFixed(2);
-        document.getElementById('longitude').textContent = utmCoords.easting.toFixed(2);
-
-        // Criar mapa usando as coordenadas geográficas
+        // Criar mapa usando as coordenadas obtidas
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: lat, lng: lng},
             zoom: 16
