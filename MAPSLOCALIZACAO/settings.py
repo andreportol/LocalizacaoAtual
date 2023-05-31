@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG',default=False, cast=bool)
-
+#ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default =[], cast=Csv())
 
 
@@ -88,7 +88,15 @@ DATABASES = {
         'PORT': config('PORT', cast=int),# porta do banco -> postgres 5432
     }       
 }
-
+# VARIAVEIS DO SERVIDOR RAILWAY
+'''
+DATABASE_URL = DADOS DO BANCO
+PGDATABASE = NOME DO BANCO
+PGHOST = LOCAL ONDE ESTÁ RODANDO O BANCO
+PGPASSWORD = SENHA DE ACESSO AO BANCO
+PGPORT = PORTA DE ACESSO AO BANCO
+PGUSER = NOME DO USUARIO
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

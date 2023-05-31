@@ -1,5 +1,7 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Mapa</title>
     <style>
@@ -9,39 +11,19 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Localização Atual</h1>
     <div id="map"></div>
 
-    <h2>Coordenadas:</h2>
-    <p>Latitude: <span id="latitude"></span></p>
-    <p>Longitude: <span id="longitude"></span></p>
+    <h2>Coordenadas UTM:</h2>
+    <p>Northing: <span id="latitude"></span></p>
+    <p>Easting: <span id="longitude"></span></p>
 
-    <script>
-        function initMap() {
-            // Obter coordenadas do celular usando o JavaScript
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var lat = position.coords.latitude;
-                var lng = position.coords.longitude;
 
-                // Exibir as coordenadas no HTML
-                document.getElementById('latitude').textContent = lat.toFixed(6);
-                document.getElementById('longitude').textContent = lng.toFixed(6);
-
-                // Criar mapa usando as coordenadas obtidas
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: lat, lng: lng},
-                    zoom: 16
-                });
-
-                // Marcar a localização no mapa
-                var marker = new google.maps.Marker({
-                    position: {lat: lat, lng: lng},
-                    map: map
-                });
-            });
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeXJrNQbsPKBQmxGptJ-wgveq_E5PBefE&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeXJrNQbsPKBQmxGptJ-wgveq_E5PBefE&callback=initMap"
+        async defer></script>
+    <script src="{% static 'js/mapa.js' %}"></script>
 </body>
+
 </html>
