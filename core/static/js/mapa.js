@@ -1,18 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var meuElemento = document.getElementById('localizarCoordenadas');
-    meuElemento.addEventListener('click', handleClick);
-});
-
-function handleClick() {
-    // Código para manipular o clique do elemento
-    console.log("Elemento clicado!");
-}
-
-
-
-
 function initMap() {
-    // Obter coordenadas do celular usando o JavaScript
     navigator.geolocation.getCurrentPosition(function(position) {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
